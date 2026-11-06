@@ -1,0 +1,30 @@
+#include <iostream>
+
+
+int main() {
+  int a = 67;
+
+  int* a_uk = &a;
+
+  std::cout << a_uk << std::endl;
+  std::cout << *a_uk << std::endl;
+
+  *a_uk = 52;
+  
+  std::cout << a << std::endl;
+
+  int mas[] = { 1, 2, 3, 4, 5 };
+
+  int lenmas = sizeof(mas) / sizeof(mas[0]);
+  for (int i = 0; i < lenmas; ++i) {
+    std::cout << *(mas + i) << std::endl;
+  }
+
+  int b = 5;
+
+  int* const const_uk_b = &b;
+
+  *const_uk_b = 42;
+  std::cout << b << std::endl;
+
+}
