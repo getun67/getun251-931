@@ -1,0 +1,43 @@
+#include <iostream>
+
+
+int f_perw(const int* start, const int* end) {
+  int tsum = 0;
+  for (const int* u_st = start; u_st < end; ++u_st) {
+    tsum += *u_st;
+  }
+  return tsum;
+}
+
+int f_tri_pl(int a, int b) {
+  return a + b;
+}
+int f_tri_mi(int a, int b) {
+  return a - b;
+}
+
+int (*f4(char op))(int, int) {
+  if (op == '+') {
+    return f_tri_pl;
+  }
+  else if (op == '-') {
+    return f_tri_mi;
+  }
+  else { std::cout << "ne tot znal" << std::endl; }
+}
+
+
+int main() {
+  int mas[] = { 2, 4, 5, 6, 6 };
+  int maslen = sizeof(mas) / sizeof(mas[0]);
+  std::cout << f_perw(mas, mas + maslen) << std::endl;
+
+
+  int (*selectedFunc)(int, int) = f4('+');
+  std::cout << selectedFunc(67, 52) << std::endl;
+
+
+  float* x = new float(6.7f);
+  std::cout << *x << std::endl;
+  delete x;
+}
